@@ -16,18 +16,17 @@ History
     ``always_do`` / ``passive_do``) used by downstream clients such as telix to accept them.  Note
     that MXP's negotiation direction is server-sends-``DO`` (the LPMud family convention, e.g.
     Discworld), so a client accepting MXP replies ``WILL`` to ``IAC DO MXP``.
+  * new: :meth:`~telnetlib3.stream_writer.TelnetWriter.add_will_callback` and
     :meth:`~telnetlib3.stream_writer.TelnetWriter.remove_will_callback` for per-option callbacks
     invoked after :meth:`~telnetlib3.stream_writer.TelnetWriter.handle_will` negotiation.  Replaces
-    the previous
-    closure-wrapping pattern in :class:`~telnetlib3.client.TelnetClient` for GMCP, ZMP, and CHARSET
-    will-detection.
+    the previous closure-wrapping pattern in :class:`~telnetlib3.client.TelnetClient` for GMCP, ZMP,
+    and CHARSET will-detection.
   * enhancement: ``telnetlib3-fingerprint`` now accepts all MUD protocol offers (ATCP, AARDWOLF,
     MSP, MXP, MSDP, MSSP) to collect subnegotiation data.
   * enhancement: sub-negotiation payloads are bounded to 1,000KB.
   * enhancement: ``--loglevel=trace`` receive dumps show the decompressed telnet stream (MCCP2,
     MCCP3) instead of raw compressed bytes.
   * bugfix: ``IAC SB IAC SE`` (sub-negotiation with no option byte) should not raise ``IndexError``
-  * new: :meth:`~telnetlib3.stream_writer.TelnetWriter.add_will_callback` and
 
 
 4.0.6
